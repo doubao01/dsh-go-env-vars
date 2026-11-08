@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import { describe, it } from 'node:test'
 
-import { renderBridge } from '../lib/bridge.js'
+import { renderBashrcBlock, renderBridge } from '../lib/bridge.js'
 
 describe('renderBridge', () => {
   it('re-exports each variable under its plain name', () => {
@@ -35,5 +35,17 @@ describe('renderBridge', () => {
     // The value travels through ${DSH_VAR_*}, not a literal.
     const script = renderBridge({ A: { value: 'secret-value-xyz' } })
     assert.doesNotMatch(script, /secret-value-xyz/)
+  })
+})
+
+describe('renderBashrcBlock', () => {
+  it('wraps the source line in markers', () => {
+    const block = renderBashrcBlock()
+    assert.match(block, /^# >>> dsh-go-env-vars >>>/m)
+    assert.match(block, /# <<< dsh-go-env-vars <<<$/m)
+  })
+
+  it('loads the bridge only when it exists', () => {
+    assert.match(renderBashrcBlock(), /\[ -r ".*env\.sh" \] && \. ".*env\.sh"/)
   })
 })

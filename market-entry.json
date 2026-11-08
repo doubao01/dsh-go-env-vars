@@ -1,0 +1,15 @@
+{
+  "name": "dsh-go-env-vars",
+  "version": "1.0.0",
+  "title": {
+    "zh": "环境变量",
+    "en": "Env vars"
+  },
+  "summary": {
+    "zh": "在手机面板里管理环境变量，每个值注入到 agent 执行的每条 shell 命令，以 $DSH_VAR_名称 的形式提供。值存在本机 JSON 文件，不进对话记录。",
+    "en": "Manage environment variables in a phone panel; each value is injected into every shell command the agent runs as $DSH_VAR_NAME. Values live in a local JSON file and never enter the transcript."
+  },
+  "category": "tools",
+  "screenshots": [],
+  "homepage": "https://github.com/doubao01/dsh-go-env-vars"
+}

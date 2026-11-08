@@ -1,0 +1,5 @@
+# Cordis loader patch: mount the plugin as its own entry.
+# `name` must equal "name" in package.json.
+- insert:
+    - id: dsh-go-env-vars
+      name: dsh-go-env-vars

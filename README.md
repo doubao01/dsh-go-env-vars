@@ -12,6 +12,10 @@ You need a token available to commands — `git`, `gh`, `curl`, a script — wit
 
 This plugin keeps values on disk, contributes them through the engine's own `ctx.shellEnv` registry, and gives you a panel to add, reveal, copy and delete them.
 
+> **Not on npm.** Install from GitHub with the commands above. The
+> `market-entry.json` file is kept so the package is ready if it is ever
+> published.
+
 ## Requirements
 
 - dsh-go with the native plugin bridge (`/etc/dsh-app/runtime.json` exists on the host)
@@ -19,17 +23,23 @@ This plugin keeps values on disk, contributes them through the engine's own `ctx
 
 ## Install
 
-```sh
-dsh plugin --profile web add /path/to/dsh-go-env-vars
-```
-
-Or from npm once published:
+Install straight from GitHub:
 
 ```sh
-dsh plugin --profile web add dsh-go-env-vars
+dsh plugin --profile web add github:doubao01/dsh-go-env-vars
 ```
 
-Restart the engine, then open the panel: **全部功能 → 环境变量**, or the **+** menu above the composer.
+Or clone it and point at the directory:
+
+```sh
+git clone https://github.com/doubao01/dsh-go-env-vars.git
+dsh plugin --profile web add ./dsh-go-env-vars
+```
+
+Then restart the engine: **设置 → 本机引擎 → 重启引擎**.
+
+The panel appears under **全部功能 → 环境变量**, above the composer as an
+**环境变量 · N** strip, and in the **+** menu.
 
 ## Use
 

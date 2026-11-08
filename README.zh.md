@@ -12,6 +12,9 @@
 
 这个插件把值存在磁盘上，通过引擎自带的 `ctx.shellEnv` 注册表注入，并提供一个面板来新增、显示、复制和删除。
 
+> **不在 npm 上。** 用上面的 GitHub 命令安装。`market-entry.json` 保留着，
+> 将来若要发布可以直接用。
+
 ## 前提
 
 - dsh-go 且已装原生插件桥接（主机上存在 `/etc/dsh-app/runtime.json`）
@@ -19,17 +22,23 @@
 
 ## 安装
 
-```sh
-dsh plugin --profile web add /path/to/dsh-go-env-vars
-```
-
-发布到 npm 后也可以：
+直接从 GitHub 装：
 
 ```sh
-dsh plugin --profile web add dsh-go-env-vars
+dsh plugin --profile web add github:doubao01/dsh-go-env-vars
 ```
 
-重启引擎，然后打开面板：**全部功能 → 环境变量**，或输入框上方的 **+** 菜单。
+或者克隆下来指向目录：
+
+```sh
+git clone https://github.com/doubao01/dsh-go-env-vars.git
+dsh plugin --profile web add ./dsh-go-env-vars
+```
+
+然后重启引擎：**设置 → 本机引擎 → 重启引擎**。
+
+面板会出现在 **全部功能 → 环境变量**，输入框上方也会有 **环境变量 · N** 的状态条，
+**+** 菜单里同样能找到。
 
 ## 使用
 
